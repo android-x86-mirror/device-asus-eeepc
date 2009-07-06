@@ -39,16 +39,16 @@ loglevel 3
 # mount mtd partitions
 # TODO: this should be mounted by fs vol id (i.e. /dev/block-by-volid/system),
 #       once init gets that functionality.
-    mount ext3 /dev/block/sda6 /system
-    mount ext3 /dev/block/sda6 /system ro remount
+#   mount ext3 /dev/block/sda6 /system
+#   mount ext3 /dev/block/sda6 /system ro remount
 
     # We chown/chmod /data again so because mount is run as root + defaults
-    mount ext3 /dev/block/sda8 /data
+#   mount ext3 /dev/block/sda8 /data
     chown system system /data
     chmod 0771 /data
 
     # Same reason as /data above
-    mount ext3 /dev/block/sda5 /cache
+#   mount ext3 /dev/block/sda5 /cache
     chown system cache /cache
     chmod 0770 /cache
 
@@ -83,16 +83,6 @@ loglevel 3
 
 
 ### Load some modules
-    insmod /lib/modules/atl2.ko
-    insmod /lib/modules/softcursor.ko
-    insmod /lib/modules/bitblit.ko
-    insmod /lib/modules/font.ko
-    insmod /lib/modules/cfbimgblt.ko
-    insmod /lib/modules/cfbfillrect.ko
-    insmod /lib/modules/cfbcopyarea.ko
-    insmod /lib/modules/drm.ko
-    insmod /lib/modules/i915.ko modeset=1
-    insmod /lib/modules/fbcon.ko
 
 on boot
 # basic network init
