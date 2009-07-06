@@ -6,5 +6,5 @@ on boot
     setprop status.battery.level_raw  50
     setprop status.battery.level_scale 9
 
-service eee_701-setup /system/bin/sh /system/etc/init.eee_701.sh
+service eeepc-setup /system/bin/sh /system/etc/init.eeepc.sh
     oneshot

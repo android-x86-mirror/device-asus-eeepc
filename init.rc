@@ -108,6 +108,7 @@ on boot
     setprop ro.FOREGROUND_APP_ADJ 0
     setprop ro.VISIBLE_APP_ADJ 1
     setprop ro.SECONDARY_SERVER_ADJ 2
+    setprop ro.HOME_APP_ADJ 4
     setprop ro.HIDDEN_APP_MIN_ADJ 7
     setprop ro.CONTENT_PROVIDER_ADJ 14
     setprop ro.EMPTY_APP_ADJ 15
@@ -117,6 +118,7 @@ on boot
     setprop ro.FOREGROUND_APP_MEM 1536
     setprop ro.VISIBLE_APP_MEM 2048
     setprop ro.SECONDARY_SERVER_MEM 4096
+    setprop ro.HOME_APP_MEM 4096
     setprop ro.HIDDEN_APP_MEM 8192
     setprop ro.CONTENT_PROVIDER_MEM 8704
     setprop ro.EMPTY_APP_MEM 16384
@@ -136,6 +138,12 @@ on boot
     chown radio system /sys/android_power/acquire_full_wake_lock
     chown radio system /sys/android_power/acquire_partial_wake_lock
     chown radio system /sys/android_power/release_wake_lock
+    chown radio system /sys/power/state
+    chown radio system /sys/power/wake_lock
+    chown radio system /sys/power/wake_unlock
+    chmod 0660 /sys/power/state
+    chmod 0660 /sys/power/wake_lock
+    chmod 0660 /sys/power/wake_unlock
     chown system system /sys/class/timed_output/vibrator/enable
     chown system system /sys/class/leds/keyboard-backlight/brightness
     chown system system /sys/class/leds/lcd-backlight/brightness
@@ -179,7 +187,6 @@ service console /system/bin/sh
 
 # adbd is controlled by the persist.service.adb.enable system property
 service adbd /sbin/adbd
-    disabled
 
 on property:persist.service.adb.enable=1
     start adbd
@@ -193,12 +200,13 @@ service servicemanager /system/bin/servicemanager
     onrestart restart zygote
     onrestart restart media
 
-service mountd /system/bin/mountd
-    socket mountd stream 0660 root mount
+service vold /system/bin/vold
+    socket vold stream 0660 root mount
 
 service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-system-server
     socket zygote stream 666
     onrestart write /sys/android_power/request_state wake
+    onrestart write /sys/power/state on
 
 service media /system/bin/mediaserver
     user media

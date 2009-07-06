@@ -27,7 +27,6 @@ $(file): $(TARGET_PREBUILT_KERNEL) | $(ACP)
 #-include vendor/intel/g945/Android.mk
 
 ################### TEMP HACK!?!
-LOCAL_PATH := vendor/asus/eee_701
 include $(CLEAR_VARS)
 
 kernel_modules := \
@@ -57,7 +56,6 @@ ALL_PREBUILT += $(installed_kernel_modules)
 # Lets install our own init.rc files :)
 # We will also make the ramdisk depend on it so that it's always pulled in.
 
-LOCAL_PATH := vendor/asus/eee_701
 include $(CLEAR_VARS)
 
 target_init_rc_file := $(TARGET_ROOT_OUT)/init.rc
@@ -65,16 +63,16 @@ $(target_init_rc_file) : $(LOCAL_PATH)/init.rc | $(ACP)
 	$(transform-prebuilt-to-target)
 ALL_PREBUILT += $(target_init_rc_file)
 
-target_hw_init_rc_file := $(TARGET_ROOT_OUT)/init.eee_701.rc
-$(target_hw_init_rc_file) : $(LOCAL_PATH)/init.eee_701.rc | $(ACP)
+target_hw_init_rc_file := $(TARGET_ROOT_OUT)/init.eeepc.rc
+$(target_hw_init_rc_file) : $(LOCAL_PATH)/init.eeepc.rc | $(ACP)
 	$(transform-prebuilt-to-target)
 ALL_PREBUILT += $(target_hw_init_rc_file)
 
 $(INSTALLED_RAMDISK_TARGET): $(target_init_rc_file) $(target_hw_init_rc_file)
 
 # and our initialization script
-file := $(TARGET_OUT)/etc/init.eee_701.sh
-$(file) : $(LOCAL_PATH)/init.eee_701.sh | $(ACP)
+file := $(TARGET_OUT)/etc/init.eeepc.sh
+$(file) : $(LOCAL_PATH)/init.eeepc.sh | $(ACP)
 	$(transform-prebuilt-to-target)
 ALL_PREBUILT += $(file)
 

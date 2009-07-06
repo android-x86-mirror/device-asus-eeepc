@@ -26,4 +26,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/eee_701.mk
+    $(LOCAL_DIR)/eeepc.mk

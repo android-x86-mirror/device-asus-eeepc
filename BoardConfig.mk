@@ -23,9 +23,10 @@ TARGET_USERIMAGES_USE_EXT2 := true
 TARGET_BOOTIMAGE_USE_EXT2 := true
 TARGET_USE_DISKINSTALLER := true
 
-TARGET_DISK_LAYOUT_CONFIG := vendor/asus/eee_701/disk_layout.conf
+LOCAL_PATH := $(call my-dir)
+TARGET_DISK_LAYOUT_CONFIG := $(LOCAL_PATH)/disk_layout.conf
 
-BOARD_KERNEL_CMDLINE := console=tty0 console=ttyS1,115200n8 console=tty0 androidboot.hardware=eee_701
+BOARD_KERNEL_CMDLINE := console=tty0 console=ttyS1,115200n8 androidboot.hardware=eeepc
 
 
 BOARD_BOOTIMAGE_MAX_SIZE := 8388608
