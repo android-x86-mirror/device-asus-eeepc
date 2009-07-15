@@ -21,6 +21,9 @@ loglevel 3
 # create mountpoints and mount tmpfs on sqlite_stmt_journals and debugfs on d
     mkdir /d
     mkdir /sdcard 0000 system system
+    mkdir /sdcard
+    chmod 0777 /sdcard
+    chown system system /sdcard
     mkdir /system
     mkdir /data 0771 system system
     mkdir /cache 0770 system cache
@@ -51,6 +54,11 @@ loglevel 3
 #   mount ext3 /dev/block/sda5 /cache
     chown system cache /cache
     chmod 0770 /cache
+    chown root camera /dev/video0
+    chmod 0660 /dev/video0
+    chown system audio /dev/snd
+    chmod 0664 /dev/snd
+
 
     # This may have been created by the recovery system with odd permissions
     chown system system /cache/recovery
