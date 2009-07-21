@@ -190,8 +190,8 @@ service servicemanager /system/bin/servicemanager
     onrestart restart zygote
     onrestart restart media
 
-service vold /system/bin/vold
-    socket vold stream 0660 root mount
+service mountd /system/bin/mountd
+    socket mountd stream 0660 root mount
 
 service zygote /system/bin/app_process -Xzygote /system/bin --zygote --start-system-server
     socket zygote stream 666
