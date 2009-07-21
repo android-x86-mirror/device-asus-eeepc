@@ -29,5 +29,11 @@ $(INSTALLED_RAMDISK_TARGET): $(file)
 $(eval $(call add-prebuilt-target,$(TARGET_ROOT_OUT),init.eeepc.rc))
 $(INSTALLED_RAMDISK_TARGET): $(file)
 $(eval $(call add-prebuilt-target,$(TARGET_OUT)/etc,init.eeepc.sh))
-$(eval $(call add-prebuilt-target,$(TARGET_OUT)/etc,mountd.conf))
 $(eval $(call add-prebuilt-target,$(TARGET_OUT_KEYLAYOUT),AT_Translated_Set_2_keyboard.kl))
+
+file := $(TARGET_ROOT_OUT)/mountd.conf
+$(file): $(LOCAL_PATH)/mountd.conf $(ACP)
+	$(transform-prebuilt-to-target)
+	ln -sf ../../mountd.conf $(TARGET_OUT)/etc
+ALL_PREBUILT += $(file)
+$(INSTALLED_RAMDISK_TARGET): $(file)

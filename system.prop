@@ -2,12 +2,6 @@
 ro.config.sync = yes
 app.setupwizard.disable=1
 keyguard.no_require_sim=1
-# we are faking sdcard partition for now
-# if you have a real sdcard, you should remove
-# this line and let either vold or mountd to
-# set it. And to do that correctly, you also
-# need to change vold.conf or mountd.conf
-EXTERNAL_STORAGE_STATE=mounted
 # default the paths and parameters for sys fs
 ro.sys.fs.power_supply.ac=/AC0
 ro.sys.fs.power_supply.bat=/BAT0
