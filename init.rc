@@ -66,6 +66,12 @@ loglevel 3
     mkdir /data/app 0771 system system
     mkdir /data/property 0700 root root
 
+    mkdir /data/misc/wifi 0770 wifi wifi
+    mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/system/wpa_supplicant 0770 wifi wifi
+    mkdir /data/misc/dhcp 0770 dhcp dhcp
+    chown dhcp dhcp /data/misc/dhcp
+
     # create dalvik-cache and double-check the perms
     mkdir /data/dalvik-cache 0771 system system
     chown system system /data/dalvik-cache
@@ -87,6 +93,7 @@ loglevel 3
 on boot
 # basic network init
     ifup lo
+    ifup wlan0
     hostname localhost
     domainname localdomain
 
@@ -169,6 +176,7 @@ on boot
     setprop net.tcp.buffersize.gprs    4092,8760,11680,4096,8760,11680
 
     setprop EXTERNAL_STORAGE_STATE mounted
+    setprop wlan.modpath MODPATH
 
     class_start default
 
@@ -207,4 +215,13 @@ service media /system/bin/mediaserver
 service installd /system/bin/installd
     socket installd stream 600 system system
 
+service wpa_supplicant /system/bin/wpa_supplicant -Dwext -iwlan0 -c /system/etc/wifi/wpa_supplicant.conf
+    group system wifi
+    disabled
+    oneshot
+
+service dhcpcd /system/bin/dhcpcd wlan0
+    group system dhcp
+    disabled
+    oneshot
 
