@@ -105,6 +105,7 @@ on boot
     setprop ro.FOREGROUND_APP_ADJ 0
     setprop ro.VISIBLE_APP_ADJ 1
     setprop ro.SECONDARY_SERVER_ADJ 2
+    setprop ro.BACKUP_APP_ADJ 2
     setprop ro.HOME_APP_ADJ 4
     setprop ro.HIDDEN_APP_MIN_ADJ 7
     setprop ro.CONTENT_PROVIDER_ADJ 14
@@ -115,6 +116,7 @@ on boot
     setprop ro.FOREGROUND_APP_MEM 1536
     setprop ro.VISIBLE_APP_MEM 2048
     setprop ro.SECONDARY_SERVER_MEM 4096
+    setprop ro.BACKUP_APP_MEM 4096
     setprop ro.HOME_APP_MEM 4096
     setprop ro.HIDDEN_APP_MEM 8192
     setprop ro.CONTENT_PROVIDER_MEM 8704
@@ -124,6 +126,7 @@ on boot
     write /sys/module/lowmemorykiller/parameters/adj 0,1,2,7,14,15
 
     write /proc/sys/vm/overcommit_memory 1
+    write /proc/sys/vm/min_free_order_shift 4
     write /sys/module/lowmemorykiller/parameters/minfree 1536,2048,4096,8192,8704,16384
 
     # Set init its forked children's oom_adj.
