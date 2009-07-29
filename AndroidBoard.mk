@@ -29,11 +29,17 @@ $(INSTALLED_RAMDISK_TARGET): $(file)
 $(eval $(call add-prebuilt-target,$(TARGET_ROOT_OUT),init.eeepc.rc))
 $(INSTALLED_RAMDISK_TARGET): $(file)
 $(eval $(call add-prebuilt-target,$(TARGET_OUT_DATA_ETC),init.eeepc.sh))
+$(eval $(call add-prebuilt-target,$(TARGET_OUT_DATA_ETC)/Wireless/RT2860STA,RT2860STA.dat))
 $(eval $(call add-prebuilt-target,$(TARGET_OUT_KEYLAYOUT),AT_Translated_Set_2_keyboard.kl))
 
 file := $(TARGET_ROOT_OUT)/mountd.conf
 $(file): $(LOCAL_PATH)/mountd.conf | $(ACP) $(TARGET_OUT_DATA_ETC)/NOTICE.html.gz
 	$(transform-prebuilt-to-target)
 	ln -sf ../../mountd.conf $(TARGET_OUT_DATA_ETC)
+ALL_PREBUILT += $(file)
+file := $(TARGET_ROOT_OUT)/etc
+$(file):
+	rm $(TARGET_ROOT_OUT)/etc
+	ln -s /system/etc $(TARGET_ROOT_OUT)/etc
 ALL_PREBUILT += $(file)
 $(INSTALLED_RAMDISK_TARGET): $(file)
