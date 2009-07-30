@@ -39,7 +39,7 @@ $(file): $(LOCAL_PATH)/mountd.conf | $(ACP) $(TARGET_OUT_DATA_ETC)/NOTICE.html.g
 ALL_PREBUILT += $(file)
 file := $(TARGET_ROOT_OUT)/etc
 $(file):
-	rm $(TARGET_ROOT_OUT)/etc
+	rm -f $(TARGET_ROOT_OUT)/etc
 	ln -s /system/etc $(TARGET_ROOT_OUT)/etc
 ALL_PREBUILT += $(file)
 $(INSTALLED_RAMDISK_TARGET): $(file)
