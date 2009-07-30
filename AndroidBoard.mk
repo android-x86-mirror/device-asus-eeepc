@@ -29,9 +29,7 @@ $(INSTALLED_RAMDISK_TARGET): $(file)
 $(eval $(call add-prebuilt-target,$(TARGET_ROOT_OUT),init.eeepc.rc))
 $(INSTALLED_RAMDISK_TARGET): $(file)
 $(eval $(call add-prebuilt-target,$(TARGET_OUT_DATA_ETC),init.eeepc.sh))
-# /etc/Wireless is the current temp location of the firmware, we will
-# move to /lib/firmware
-$(eval $(call add-prebuilt-target,$(TARGET_OUT_DATA_ETC)/Wireless/RT2860STA,RT2860STA.dat))
+$(eval $(call add-prebuilt-target,$(TARGET_OUT_SHARED_LIBRARIES)/firmware/RT2860STA,RT2860STA.dat))
 $(eval $(call add-prebuilt-target,$(TARGET_OUT_KEYLAYOUT),AT_Translated_Set_2_keyboard.kl))
 
 file := $(TARGET_ROOT_OUT)/mountd.conf
