@@ -29,8 +29,10 @@ $(INSTALLED_RAMDISK_TARGET): $(file)
 $(eval $(call add-prebuilt-target,$(TARGET_ROOT_OUT),init.eeepc.rc))
 $(INSTALLED_RAMDISK_TARGET): $(file)
 $(eval $(call add-prebuilt-target,$(TARGET_OUT_DATA_ETC),init.eeepc.sh))
-$(eval $(call add-prebuilt-target,$(TARGET_OUT_SHARED_LIBRARIES)/firmware/RT2860STA,RT2860STA.dat))
 $(eval $(call add-prebuilt-target,$(TARGET_OUT_KEYLAYOUT),AT_Translated_Set_2_keyboard.kl))
+
+ALL_FIRMWARES := $(shell cd $(LOCAL_PATH) && find firmware -type f)
+$(eval $(foreach f,$(ALL_FIRMWARES),$(call add-prebuilt-target,$(TARGET_OUT_SHARED_LIBRARIES),$(f))))
 
 file := $(TARGET_ROOT_OUT)/mountd.conf
 $(file): $(LOCAL_PATH)/mountd.conf | $(ACP) $(TARGET_OUT_DATA_ETC)/NOTICE.html.gz
