@@ -94,7 +94,6 @@ loglevel 3
 on boot
 # basic network init
     ifup lo
-    ifup wlan0
     hostname localhost
     domainname localdomain
 
@@ -180,7 +179,6 @@ on boot
     setprop net.tcp.buffersize.gprs    4092,8760,11680,4096,8760,11680
 
     setprop EXTERNAL_STORAGE_STATE mounted
-    setprop wlan.modpath MODPATH
 
     class_start default
 
