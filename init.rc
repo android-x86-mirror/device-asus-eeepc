@@ -17,6 +17,8 @@ loglevel 3
 
 # Backward compatibility
     symlink /system/etc /etc
+    symlink /system/lib/firmware /lib/firmware
+    symlink /system/lib/modules /lib/modules
 
 # create mountpoints and mount tmpfs on sqlite_stmt_journals and debugfs on d
     mkdir /d
