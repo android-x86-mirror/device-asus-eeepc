@@ -223,7 +223,7 @@ service bootanim /system/bin/bootanimation
 service installd /system/bin/installd
     socket installd stream 600 system system
 
-service wpa_supplicant /system/bin/wpa_supplicant -Dwext -iwlan0 -c /system/etc/wifi/wpa_supplicant.conf
+service wpa_supplicant /system/bin/wpa_supplicant -dd -Dwext -iwlan0 -c /data/misc/wifi/wpa_supplicant.conf
     group system wifi
     disabled
     oneshot
