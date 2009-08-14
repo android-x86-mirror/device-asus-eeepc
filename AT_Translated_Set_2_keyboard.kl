@@ -83,4 +83,11 @@ key 12    MINUS
 key 13    EQUALS
 key 215   AT
 
+key 75    BACK              WAKE_DROPPED
+key 77    SOFT_RIGHT        WAKE
+key 96    ENTER
+key 100   ALT_RIGHT
+key 102   HOME              WAKE
+key 104   PAGE_UP
+key 109   PAGE_DOWN
 
