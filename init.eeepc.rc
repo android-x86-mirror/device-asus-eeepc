@@ -12,5 +12,3 @@ on boot
     setprop alsa.mixer.playback.headset Master
     setprop alsa.mixer.playback.speaker Master
 
-service eeepc-setup /system/bin/sh /system/etc/init.eeepc.sh
-    oneshot

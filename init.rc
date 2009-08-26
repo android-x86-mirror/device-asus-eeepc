@@ -228,6 +228,8 @@ service wpa_supplicant /system/bin/wpa_supplicant -Dwext -iwlan0 -c /data/misc/w
     disabled
     oneshot
 
+#Please do not change anything below this line. If you want to add new service, add it above this line
+#REMOVE FROM HERE
 service dhcpcd /system/bin/dhcpcd wlan0
     group system dhcp
     disabled
