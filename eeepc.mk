@@ -4,6 +4,14 @@
 # For now, reuse the generic (phone) infrastructure.
 #
 
+PRODUCT_PACKAGES := \
+	GlobalTime \
+	JETBoy \
+	LunarLander \
+	NotePad \
+	RSSReader \
+	Snake
+
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic.mk)
 
 PRODUCT_NAME := eeepc
