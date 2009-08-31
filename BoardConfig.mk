@@ -1,4 +1,6 @@
 # These definitions override the defaults in config/config.make.
+TARGET_CPU_ABI := none
+
 TARGET_COMPRESS_MODULE_SYMBOLS := false
 
 TARGET_PRELINK_MODULE := false

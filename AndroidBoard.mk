@@ -34,6 +34,9 @@ $(eval $(call add-prebuilt-target,$(TARGET_OUT_KEYLAYOUT),AT_Translated_Set_2_ke
 ALL_FIRMWARES := $(shell cd $(LOCAL_PATH) && find firmware -type f)
 $(eval $(foreach f,$(ALL_FIRMWARES),$(call add-prebuilt-target,$(TARGET_OUT_SHARED_LIBRARIES),$(f))))
 
+ALL_APPS := $(subst $(LOCAL_PATH)/,,$(wildcard $(LOCAL_PATH)/app/*))
+$(eval $(foreach f,$(ALL_APPS),$(call add-prebuilt-target,$(TARGET_OUT),$(f))))
+
 file := $(TARGET_ROOT_OUT)/mountd.conf
 $(file): $(LOCAL_PATH)/mountd.conf | $(ACP) $(TARGET_OUT_DATA_ETC)/NOTICE.html.gz
 	$(transform-prebuilt-to-target)

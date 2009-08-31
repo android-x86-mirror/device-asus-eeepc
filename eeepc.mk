@@ -5,6 +5,7 @@
 #
 
 PRODUCT_PACKAGES := \
+	Email \
 	GlobalTime \
 	JETBoy \
 	LunarLander \
