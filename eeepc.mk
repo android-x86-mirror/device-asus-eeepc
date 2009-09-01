@@ -11,6 +11,7 @@ PRODUCT_PACKAGES := \
 	LunarLander \
 	NotePad \
 	RSSReader \
+        PinyinIME \
 	Snake
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic.mk)
