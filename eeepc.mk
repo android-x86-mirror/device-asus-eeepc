@@ -6,6 +6,7 @@
 
 PRODUCT_PACKAGES := \
 	Email \
+	FileManager \
 	GlobalTime \
 	JETBoy \
 	LunarLander \
