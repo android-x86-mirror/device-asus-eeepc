@@ -74,6 +74,7 @@ key 28    ENTER
         
 key 56    ALT_LEFT
 key 42    SHIFT_LEFT
+key 54    SHIFT_RIGHT
 key 15    TAB
 key 57    SPACE
 key 150   EXPLORER
