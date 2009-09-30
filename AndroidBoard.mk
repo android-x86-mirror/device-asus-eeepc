@@ -36,10 +36,4 @@ $(eval $(foreach f,$(ALL_FIRMWARES),$(call add-prebuilt-target,$(TARGET_OUT_SHAR
 
 ALL_APPS := $(subst $(LOCAL_PATH)/,,$(wildcard $(LOCAL_PATH)/app/*))
 $(eval $(foreach f,$(ALL_APPS),$(call add-prebuilt-target,$(TARGET_OUT),$(f))))
-
-file := $(TARGET_ROOT_OUT)/mountd.conf
-$(file): $(LOCAL_PATH)/mountd.conf | $(ACP) $(TARGET_OUT_DATA_ETC)/NOTICE.html.gz
-	$(transform-prebuilt-to-target)
-	ln -sf ../../mountd.conf $(TARGET_OUT_DATA_ETC)
-ALL_PREBUILT += $(file)
 $(INSTALLED_RAMDISK_TARGET): $(file)
