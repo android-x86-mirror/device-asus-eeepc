@@ -5,14 +5,15 @@
 #
 
 PRODUCT_PACKAGES := \
+	ConnectBot \
 	Email \
 	FileManager \
 	GlobalTime \
 	JETBoy \
 	LunarLander \
 	NotePad \
+	PinyinIME \
 	RSSReader \
-        PinyinIME \
 	Snake
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic.mk)
