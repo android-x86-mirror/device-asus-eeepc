@@ -27,11 +27,15 @@ key 103   DPAD_UP           WAKE_DROPPED
 key 125   HOME              WAKE
 key 105   DPAD_LEFT         WAKE_DROPPED
 key 106   DPAD_RIGHT        WAKE_DROPPED
+
 key 115   VOLUME_UP
 key 114   VOLUME_DOWN
+key 113   MUTE
 key 116   POWER             WAKE
 key 211   FOCUS
 key 212   CAMERA
+key 238   WIFI
+key 142   SLEEP
 
 key 16    Q
 key 17    W
