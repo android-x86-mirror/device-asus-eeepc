@@ -95,4 +95,8 @@ key 100   ALT_RIGHT
 key 102   HOME              WAKE
 key 104   PAGE_UP
 key 109   PAGE_DOWN
+key 29    CTRL_LEFT
+key 97    CTRL_RIGHT
+key 58    CAPS_LOCK         CAPS_LOCK
+
 
