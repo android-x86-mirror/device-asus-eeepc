@@ -11,10 +11,6 @@ LOCAL_PATH := $(call my-dir)
 ####################################################################
 ### Include input devices specific files
 
-include $(CLEAR_VARS)
-LOCAL_SRC_FILES := AT_Translated_Set_2_keyboard.kcm
-include $(BUILD_KEY_CHAR_MAP)
-
 define add-prebuilt-target
 
 file := $(1)/$(2)
@@ -24,16 +20,28 @@ ALL_PREBUILT += $$(file)
 
 endef
 
+define add-keymap
+
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := $(1)
+include $(BUILD_KEY_CHAR_MAP)
+
+$$(eval $$(call add-prebuilt-target,$(TARGET_OUT_KEYLAYOUT),$$(subst .kcm,.kl,$(1))))
+
+endef
+
 $(eval $(call add-prebuilt-target,$(TARGET_ROOT_OUT),init.rc))
 $(INSTALLED_RAMDISK_TARGET): $(file)
 $(eval $(call add-prebuilt-target,$(TARGET_ROOT_OUT),init.eeepc.rc))
 $(INSTALLED_RAMDISK_TARGET): $(file)
 $(eval $(call add-prebuilt-target,$(TARGET_OUT_DATA_ETC),init.eeepc.sh))
-$(eval $(call add-prebuilt-target,$(TARGET_OUT_KEYLAYOUT),AT_Translated_Set_2_keyboard.kl))
 
 ALL_FIRMWARES := $(shell cd $(LOCAL_PATH) && find firmware -type f)
 $(eval $(foreach f,$(ALL_FIRMWARES),$(call add-prebuilt-target,$(TARGET_OUT_SHARED_LIBRARIES),$(f))))
 
 ALL_APPS := $(subst $(LOCAL_PATH)/,,$(wildcard $(LOCAL_PATH)/app/*))
 $(eval $(foreach f,$(ALL_APPS),$(call add-prebuilt-target,$(TARGET_OUT),$(f))))
-$(INSTALLED_RAMDISK_TARGET): $(file)
+
+LOCAL_PATH := $(LOCAL_PATH)/keymaps
+ALL_KEYMAPS := $(subst $(LOCAL_PATH)/,,$(wildcard $(LOCAL_PATH)/*.kcm))
+$(eval $(foreach f,$(ALL_KEYMAPS),$(call add-keymap,$(f))))
