@@ -1,4 +1,4 @@
-key 41   GRAVE
+key 41    GRAVE
 key 2     1
 key 3     2
 key 4     3
@@ -27,11 +27,15 @@ key 103   DPAD_UP           WAKE_DROPPED
 key 125   HOME              WAKE
 key 105   DPAD_LEFT         WAKE_DROPPED
 key 106   DPAD_RIGHT        WAKE_DROPPED
-key 115   VOLUME_UP
+
+key 113   VOLUME_MUTE
 key 114   VOLUME_DOWN
+key 115   VOLUME_UP
 key 116   POWER             WAKE
 key 211   FOCUS
 key 212   CAMERA
+key 238   WIFI
+key 142   SLEEP
 
 key 16    Q
 key 17    W
@@ -43,9 +47,9 @@ key 22    U
 key 23    I
 key 24    O
 key 25    P
-key 26    LEFT_BRACKET
-key 27    RIGHT_BRACKET
-key 43    BACKSLASH
+key 26    AT
+key 27    LEFT_BRACKET
+key 43    RIGHT_BRACKET
 
 key 30    A
 key 31    S
@@ -57,7 +61,7 @@ key 36    J
 key 37    K
 key 38    L
 key 39    SEMICOLON
-key 40    APOSTROPHE
+key 40    STAR
 key 14    DEL
 
 key 44    Z
@@ -70,6 +74,7 @@ key 50    M
 key 51    COMMA
 key 52    PERIOD
 key 53    SLASH
+key 89    BACKSLASH
 key 28    ENTER
 
 key 56    ALT_LEFT
@@ -94,4 +99,4 @@ key 109   PAGE_DOWN
 key 29    CTRL_LEFT
 key 97    CTRL_RIGHT
 key 58    CAPS_LOCK         CAPS_LOCK
-key 86    MORE_KEY
+key 124   MORE_KEY
