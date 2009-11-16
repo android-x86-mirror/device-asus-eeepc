@@ -4,6 +4,4 @@ app.setupwizard.disable=1
 keyguard.no_require_sim=1
 ro.alarm.volume.adjustable=true
 ro.simulated.phone=true
-#ro.sys.fs.power_supply.bat.features.bat.health is not supported
-#ro.sys.fs.power_supply.bat.features.bat.temperature is not supported
 # end system.prop for eeepc
