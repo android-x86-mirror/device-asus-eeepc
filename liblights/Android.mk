@@ -1,4 +1,4 @@
-# Copyright (C) 2008 The Android-x86 Open Source Project
+# Copyright (C) 2009 The Android-x86 Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
+ifeq ($(TARGET_PRODUCT),eeepc)
 LOCAL_PATH:= $(call my-dir)
 # HAL module implemenation, not prelinked and stored in
 # hw/<COPYPIX_HARDWARE_MODULE_ID>.<ro.board.platform>.so
@@ -28,3 +28,4 @@ LOCAL_SHARED_LIBRARIES := liblog
 LOCAL_MODULE := lights.eeepc
 
 include $(BUILD_SHARED_LIBRARY)
+endif
