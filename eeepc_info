@@ -4,7 +4,7 @@ eeepc_info()
 {
 	# common for all Eee PC models
 	[ -c /dev/fb0 ] || FB0DEV=i915
-	EXTMOD=eeepc-laptop
+	EXTMOD="psmouse eeepc-laptop"
 	PREDEV=snd-hda-codec-realtek
 	SNDDEV=snd-hda-intel
 	CAMDEV=uvcvideo
