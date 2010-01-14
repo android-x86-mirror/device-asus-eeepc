@@ -33,9 +33,14 @@ eeepc_info()
 			LANDEV=r8169
 			WIFDEV=rt2860sta
 			;;
-		T91|T101)
+		T91)
 			FB0DEV=
 			UVESA_MODE=${UVESA_MODE:-1024x600}
+			LANDEV=atl1e
+			WIFDEV=ath9k
+			BOARD_USES_TSLIB=true
+			;;
+		T101)
 			LANDEV=atl1e
 			WIFDEV=ath9k
 			BOARD_USES_TSLIB=true
