@@ -35,6 +35,8 @@ $(INSTALLED_RAMDISK_TARGET): $(file)
 $(eval $(call add-prebuilt-target,$(TARGET_ROOT_OUT),init.eeepc.rc))
 $(INSTALLED_RAMDISK_TARGET): $(file)
 $(eval $(call add-prebuilt-target,$(TARGET_OUT_DATA_ETC),init.eeepc.sh))
+$(eval $(call add-prebuilt-target,$(TARGET_OUT_DATA_ETC),ts.conf))
+$(eval $(call add-prebuilt-target,$(TARGET_OUT_DATA_ETC),ts.env))
 
 ALL_FIRMWARES := $(shell cd $(LOCAL_PATH) && find firmware -type f)
 $(eval $(foreach f,$(ALL_FIRMWARES),$(call add-prebuilt-target,$(TARGET_OUT_SHARED_LIBRARIES),$(f))))
