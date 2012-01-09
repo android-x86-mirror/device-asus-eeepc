@@ -17,7 +17,6 @@ eeepc_info()
 			;;
 		T91MT|T101MT)
 			UVESA_MODE=${UVESA_MODE:-1024x600}
-			BOARD_USES_TSLIB=true
 			EXTMOD="$EXTMOD hid-multitouch"
 			;;
 		*)
